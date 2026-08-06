@@ -1875,9 +1875,10 @@
       font-size: 24px;
       font-weight: 900;
       font-style: italic;
-      color: #cbd5e1;
+      color: var(--color-electric-cobalt);
       z-index: 10;
       padding: 8px;
+      animation: pulse-vs-mobile 2.5s infinite ease-in-out;
     }
     @media (min-width: 768px) {
       .vs-divider {
@@ -1899,6 +1900,12 @@
       0% { transform: translate(-50%, -50%) scale(1); }
       50% { transform: translate(-50%, -50%) scale(1.15); }
       100% { transform: translate(-50%, -50%) scale(1); }
+    }
+    
+    @keyframes pulse-vs-mobile {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
     }
     
     @keyframes bounce-soft {
