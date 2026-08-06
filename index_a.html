@@ -844,11 +844,11 @@
       border-radius: 4px;
     }
     .pricing-table-container::-webkit-scrollbar-thumb {
-      background: var(--color-powder-blue);
+      background: #cbd5e1;
       border-radius: 4px;
     }
     .pricing-table-container::-webkit-scrollbar-thumb:hover {
-      background: var(--color-electric-cobalt);
+      background: var(--color-slate-gray);
     }
 
     .pricing-table {
@@ -909,6 +909,9 @@
       .calc-grid {
         grid-template-columns: 1fr;
       }
+      .calc-grid > div {
+        min-width: 0;
+      }
       .calc-card {
         padding: 24px 16px;
       }
@@ -934,10 +937,18 @@
     .calc-options-row {
       display: flex;
       gap: 6px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .calc-options-row::-webkit-scrollbar {
+      display: none;
     }
 
     .calc-opt-btn {
-      flex: 1;
+      flex: 1 0 auto;
+      white-space: nowrap;
       padding: 12px 14px;
       border: 1px solid var(--color-hairline);
       background: var(--color-pure-white);
