@@ -1,0 +1,2688 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>홈버디 - 365일 정밀 위생 케어 시스템</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    :root {
+      /* Portrait Design Tokens */
+      --color-canvas-cream: #ffffff; /* White Canvas */
+      --color-surface-ivory: #ffffff;
+      --color-pure-white: #ffffff;
+      --color-lavender-mist: #e8f1ff; /* Sky Wash */
+      --color-powder-blue: #d7ffe2; /* Mint Wash */
+      --color-ink-charcoal: #08304c; /* Portrait Ink */
+      --color-deep-ink: #08304c;
+      --color-slate-gray: #797979; /* Slate Helper */
+      --color-steel-gray: #797979;
+      --color-hairline: #08304c; /* Structural lines Portrait Ink */
+      --color-electric-cobalt: #08304c;
+      --color-deep-cobalt: #08304c;
+      --color-cerulean: #08304c;
+      --color-vivid-violet: #08304c;
+      --color-forest: #08304c;
+      --color-forest-bg: #e8f1ff;
+      
+      --color-coral-pop: #08304c;
+      --color-sky-pop: #08304c;
+      --color-fresh-grass: #08304c;
+      --color-sunshine-pop: #08304c;
+      
+      --color-mint-wash: #d7ffe2;
+      --color-sky-wash: #e8f1ff;
+      --color-peach-wash: #ffebd6;
+      --color-rainbow-spectrum: linear-gradient(90deg, rgb(38, 192, 255), rgb(230, 0, 194) 20%, rgb(255, 73, 78) 40%, rgb(255, 161, 62) 60%, rgb(255, 200, 55) 80%, rgb(0, 204, 61));
+
+      --font-family: 'Pretendard', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display: 'Pretendard', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --radius-cards: 24px;
+      --radius-buttons: 28px;
+      --radius-pills: 9999px;
+      --shadow-subtle: oklab(0 0 0 / 0.08) 0px 0px 0px 1px, rgba(0, 0, 0, 0.03) 0px 16px 16px -8px, rgba(0, 0, 0, 0.03) 0px 10px 10px -5px, rgba(0, 0, 0, 0.03) 0px 5px 5px -2.5px, rgba(0, 0, 0, 0.03) 0px 3px 3px -1.5px, rgba(0, 0, 0, 0.03) 0px 2px 2px -1px, rgba(0, 0, 0, 0.03) 0px 1px 1px -0.5px;
+      --shadow-lg: oklab(0 0 0 / 0.06) 0px 0px 0px 1px, rgba(0, 0, 0, 0.07) 0px 20px 20px -10px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px, rgba(0, 0, 0, 0.03) 0px 5px 5px -2.5px, rgba(0, 0, 0, 0.03) 0px 3px 3px -1.5px, rgba(0, 0, 0, 0.03) 0px 2px 2px -1px, rgba(0, 0, 0, 0.03) 0px 1px 1px -0.5px;
+      --shadow-glow: none;
+      --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: inherit;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--color-canvas-cream);
+      color: var(--color-ink-charcoal);
+      font-family: var(--font-family);
+      line-height: 1.56;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    /* Container & Layout */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: 80px 0;
+      position: relative;
+    }
+
+    /* Typography Utilities */
+    h1, h2, h3, h4 {
+      color: var(--color-ink-charcoal);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .display-headline {
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 1.12;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+      word-break: keep-all;
+    }
+
+    /* Aceternity Style Hero Highlight */
+    .highlight-text {
+      position: relative;
+      display: inline-block;
+      z-index: 1;
+      padding: 0 12px;
+      margin: 0 -4px;
+      border-radius: 12px;
+      animation: textHighlightColor 0.8s ease-in-out 0.8s forwards;
+    }
+    .highlight-text::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(120deg, var(--color-electric-cobalt), var(--color-vivid-violet));
+      border-radius: 12px;
+      z-index: -1;
+      animation: highlightSweep 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.8s forwards;
+    }
+    @keyframes highlightSweep {
+      0% { width: 0%; }
+      100% { width: 100%; }
+    }
+    @keyframes textHighlightColor {
+      0% { color: inherit; }
+      100% { color: #ffffff; }
+    }
+
+    .section-title {
+      font-size: clamp(26px, 3.5vw, 38px);
+      line-height: 1.2;
+      text-align: center;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      font-size: 18px;
+      color: var(--color-slate-gray);
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 48px;
+    }
+
+    /* Aceternity Style Floating Navbar */
+    @keyframes floatDown {
+      0% { opacity: 0; transform: translate(-50%, -20px); }
+      100% { opacity: 1; transform: translate(-50%, 0); }
+    }
+    .navbar {
+      position: fixed; top: 24px; left: 50%; transform: translateX(-50%); z-index: 1000;
+      width: calc(100% - 48px); max-width: 960px;
+      background: rgba(255, 255, 255, 0.65); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 100px;
+      box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+      animation: floatDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      padding: 0 12px 0 24px;
+    }
+    .navbar-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { font-size: 22px; font-weight: 800; color: var(--color-ink-charcoal); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    .logo-badge { background: var(--color-electric-cobalt); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: var(--radius-pills); }
+    .nav-menu { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-menu a {
+      display: inline-flex; align-items: center; justify-content: center;
+      text-decoration: none; color: var(--color-ink-charcoal); font-weight: 600; font-size: 14px;
+      padding: 10px 18px; border-radius: 100px; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-menu a:hover {
+      color: var(--color-electric-cobalt);
+      background: rgba(0, 104, 249, 0.08);
+      transform: translateY(-1px);
+    }
+    @media (max-width: 850px) {
+      .nav-menu { display: none; }
+      .navbar { padding: 0 16px; width: calc(100% - 32px); }
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Buttons Pill Design System */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      border-radius: var(--radius-buttons);
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+      cursor: pointer;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+
+    /* Shiny Button Adaptation for .btn-cobalt in Portrait */
+    .sparkle-button {
+      position: relative;
+      display: inline-block;
+    }
+
+    .btn-cobalt {
+      --cut: 0.06em;
+      --active: 0;
+      --bg: var(--color-canvas-cream);
+      background: var(--bg);
+      color: var(--color-ink-charcoal);
+      border: 0;
+      position: relative;
+      isolation: isolate;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25em;
+      white-space: nowrap;
+      transition: background 0.25s, scale 0.25s;
+      scale: calc(1 + (var(--active) * 0.05));
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .btn-cobalt:active {
+      scale: 1;
+    }
+
+    .btn-cobalt:is(:hover, :focus-visible) {
+      --active: 1;
+    }
+
+    .btn-cobalt::before {
+      content: "";
+      position: absolute;
+      inset: calc(var(--cut) * -1);
+      background: var(--color-rainbow-spectrum);
+      border-radius: inherit;
+      z-index: -2;
+    }
+
+    .btn-cobalt svg.sparkle {
+      overflow: visible !important;
+      inline-size: 1.25em;
+      translate: -25% -5%;
+      margin-left: -0.5em;
+    }
+
+    .btn-cobalt .sparkle path {
+      color: var(--color-ink-charcoal);
+      transform-box: fill-box;
+      transform-origin: center;
+      fill: currentColor;
+      stroke: currentColor;
+      animation-delay: calc((0.25s * 1.5) + (var(--delay) * 1s));
+      animation-duration: 0.6s;
+      transition: opacity 0.25s;
+    }
+
+    .btn-cobalt:is(:hover, :focus-visible) path {
+      animation-name: bounce;
+    }
+
+    @keyframes bounce {
+      35%, 65% { scale: var(--scale); }
+    }
+
+    .btn-cobalt .sparkle path:nth-of-type(1) { --scale: 0.5; --delay: 0.1; }
+    .btn-cobalt .sparkle path:nth-of-type(2) { --scale: 1.5; --delay: 0.2; }
+    .btn-cobalt .sparkle path:nth-of-type(3) { --scale: 2.5; --delay: 0.35; }
+
+    .btn-cobalt .spark {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      rotate: 0deg;
+      overflow: hidden;
+      mask: linear-gradient(white, transparent 50%);
+      -webkit-mask: linear-gradient(white, transparent 50%);
+      animation: flip 3.6s infinite steps(2, end);
+    }
+
+    @keyframes flip { to { rotate: 360deg; } }
+
+    .btn-cobalt .spark:before {
+      content: "";
+      position: absolute;
+      width: 200%;
+      aspect-ratio: 1;
+      top: 0%;
+      left: 50%;
+      z-index: -1;
+      translate: -50% -15%;
+      rotate: 0;
+      transform: rotate(-90deg);
+      opacity: calc(var(--active) + 0.4);
+      background: conic-gradient(from 0deg, transparent 0 340deg, var(--color-ink-charcoal) 360deg);
+      transition: opacity 0.25s;
+      animation: rotate 1.8s linear infinite both;
+    }
+
+    .btn-cobalt .spark:after {
+      content: "";
+      position: absolute;
+      inset: var(--cut);
+      border-radius: inherit;
+    }
+
+    .btn-cobalt .backdrop {
+      position: absolute;
+      inset: var(--cut);
+      background: var(--bg);
+      border-radius: inherit;
+      transition: background 0.25s;
+      z-index: -1;
+    }
+
+    @keyframes rotate { to { transform: rotate(90deg); } }
+
+    .sparkle-button:is(:hover, :focus-within) .particle-pen {
+      --active: 1;
+      --play-state: running;
+    }
+
+    .particle-pen {
+      position: absolute;
+      width: 200%;
+      aspect-ratio: 1;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+      mask: radial-gradient(white, transparent 65%);
+      -webkit-mask: radial-gradient(white, transparent 65%);
+      z-index: -1;
+      opacity: var(--active, 0);
+      transition: opacity 0.25s;
+      pointer-events: none;
+    }
+
+    .particle {
+      fill: var(--color-ink-charcoal);
+      width: calc(var(--size, 0.25) * 1rem);
+      aspect-ratio: 1;
+      position: absolute;
+      top: calc(var(--y) * 1%);
+      left: calc(var(--x) * 1%);
+      opacity: var(--alpha, 1);
+      animation: float-out calc(var(--duration, 1) * 1s) calc(var(--delay) * -1s) infinite linear;
+      transform-origin: var(--origin-x, 1000%) var(--origin-y, 1000%);
+      z-index: -1;
+      animation-play-state: var(--play-state, paused);
+    }
+
+    .particle path { fill: currentColor; stroke: none; }
+    .particle:nth-of-type(even) { animation-direction: reverse; }
+
+    @keyframes float-out { to { rotate: 360deg; } }
+
+    .btn-cobalt .text {
+      translate: 2% 0%;
+      color: var(--color-ink-charcoal);
+      z-index: 1;
+      font-weight: 600;
+    }
+
+    .btn-ghost {
+      background-color: transparent;
+      color: var(--color-ink-charcoal);
+      border: 1.5px solid var(--color-slate-gray);
+    }
+    .btn-ghost:hover {
+      background-color: var(--color-lavender-mist);
+      transform: translateY(-2px);
+      border-color: var(--color-ink-charcoal);
+    }
+
+    .btn-lg {
+      padding: 16px 36px;
+      font-size: 17px;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: var(--radius-pills);
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .badge-violet {
+      background: var(--color-lavender-mist);
+      color: var(--color-vivid-violet);
+    }
+
+    .badge-cobalt {
+      background: #e6f0ff;
+      color: var(--color-electric-cobalt);
+    }
+
+    /* HERO SECTION */
+    .hero-section {
+      padding-top: 150px;
+      padding-bottom: 90px;
+      background: var(--color-canvas-cream);
+      position: relative;
+    }
+
+    .hero-content {
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero-text-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .hero-subtitle {
+      font-size: 19px;
+      color: #333d4b;
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+
+    .hero-subtitle strong {
+      color: var(--color-electric-cobalt);
+      font-weight: 700;
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 50px;
+    }
+
+    .hero-stats-banner {
+      justify-content: center;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(max-content, 1fr));
+      gap: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-stats-banner {
+      justify-content: center;
+      margin: 0 auto;
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-stats-banner {
+      justify-content: center;
+      margin: 0 auto;
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-stat-card {
+      background: var(--color-pure-white);
+      border: 1px solid var(--color-hairline);
+      border-radius: var(--radius-cards);
+      padding: 16px;
+      box-shadow: var(--shadow-subtle);
+      text-align: left;
+      transition: var(--transition-smooth);
+    }
+
+    .hero-stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-stat-num {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--color-electric-cobalt);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .hero-stat-label {
+      font-size: 14px;
+      color: var(--color-slate-gray);
+      font-weight: 500;
+    }
+
+    /* SECTION 1: MEMBERSHIP SPECIAL SERVICES */
+    .special-card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 900px) {
+      .special-card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .special-main-card {
+      background: var(--color-pure-white);
+      color: var(--color-ink-charcoal);
+      border-radius: var(--radius-cards);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--color-hairline);
+    }
+
+    .special-main-card-content {
+      padding: 40px;
+    }
+
+    .special-main-card h3 {
+      color: var(--color-ink-charcoal);
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .special-main-card h4 {
+      color: var(--color-electric-cobalt);
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .special-main-card p {
+      color: var(--color-slate-gray);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .special-main-card-image {
+      width: 100%;
+      height: 250px;
+      background: url('images/special_floor_grouting_1785941629224.jpg') no-repeat center center / cover;
+      margin-top: auto;
+    }
+
+    .special-tag-free {
+      background: var(--color-electric-cobalt);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: var(--radius-pills);
+      display: inline-block;
+      margin-bottom: 20px;
+      align-self: flex-start;
+    }
+
+    .free-services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 600px) {
+      .free-services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .free-service-item {
+      background: var(--color-pure-white);
+      border: 1px solid var(--color-hairline);
+      border-radius: var(--radius-cards);
+      padding: 16px;
+      transition: var(--transition-smooth);
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .free-service-item:hover {
+      border-color: var(--color-powder-blue);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .service-img-wrap {
+      flex-shrink: 0;
+      width: 100px;
+      height: 100px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .service-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .service-content {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .service-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--color-ink-charcoal);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .service-num-badge {
+      background: #e6f0ff;
+      color: var(--color-electric-cobalt);
+      font-size: 13px;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+
+    .service-desc {
+      font-size: 14px;
+      color: var(--color-slate-gray);
+      line-height: 1.5;
+      word-break: keep-all;
+    }
+
+    /* SECTION 2: 8-STEP SYSTEM */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 60px;
+    }
+
+    @media (max-width: 992px) {
+      .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 576px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .step-card {
+      background: var(--color-pure-white);
+      border: 1px solid var(--color-hairline);
+      border-radius: var(--radius-cards);
+      overflow: hidden;
+      position: relative;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-subtle);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .step-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0, 104, 249, 0.12);
+      border-color: rgba(0, 104, 249, 0.2);
+    }
+
+    .step-img-wrap {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .step-img-wrap img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .step-card:hover .step-img-wrap img {
+      transform: scale(1.1);
+    }
+
+    .step-details {
+      padding: 40px 25px 25px 25px;
+      position: relative;
+      flex-grow: 1;
+      text-align: left;
+      background: var(--color-pure-white);
+    }
+
+    .step-badge-circle {
+      width: 54px;
+      height: 54px;
+      background: var(--color-electric-cobalt);
+      color: #ffffff;
+      border: 3px solid var(--color-pure-white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: -27px;
+      left: 20px;
+      font-size: 20px;
+      font-weight: 800;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      z-index: 2;
+    }
+
+    .step-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #333d4b;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .step-desc {
+      font-size: 15px;
+      color: var(--color-slate-gray);
+      line-height: 1.6;
+      word-break: keep-all;
+    }
+
+    /* Distinct Features Sub-grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .feature-card {
+      text-align: center;
+      padding: 0 16px;
+    }
+
+    .feature-icon-wrapper {
+      width: 90px;
+      height: 90px;
+      background: rgba(0, 104, 249, 0.08);
+      color: var(--color-electric-cobalt);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover .feature-icon-wrapper {
+      background: var(--color-electric-cobalt);
+      color: #ffffff;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 104, 249, 0.2);
+    }
+
+    .feature-card h4 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #333d4b;
+      margin-bottom: 16px;
+    }
+
+    .feature-card p {
+      font-size: 15px;
+      color: var(--color-slate-gray);
+      line-height: 1.7;
+      word-break: keep-all;
+    }
+
+    /* SECTION 3: PRICING & CALCULATOR */
+    .pricing-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      background: var(--color-hairline);
+      padding: 4px;
+      border-radius: var(--radius-pills);
+      max-width: 480px;
+      margin: 0 auto 40px;
+    }
+
+    .pricing-tab-btn {
+      flex: 1;
+      padding: 10px 20px;
+      border-radius: var(--radius-pills);
+      border: none;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .pricing-tab-btn:hover {
+      color: var(--color-pure-white);
+    }
+    .pricing-tab-btn.active {
+      background: var(--color-pure-white);
+      color: var(--color-ink-charcoal);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .pricing-table-container {
+      background: var(--color-pure-white);
+      border: 1px solid var(--color-hairline);
+      border-radius: var(--radius-cards);
+      overflow: hidden;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+      box-shadow: var(--shadow-subtle);
+      margin-bottom: 48px;
+    }
+
+    .pricing-table {
+      width: 100%;
+      min-width: 640px;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .pricing-table th {
+      background: var(--color-surface-ivory);
+      padding: 16px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-slate-gray);
+      border-bottom: 1px solid var(--color-hairline);
+    }
+
+    .pricing-table td {
+      padding: 20px 24px;
+      font-size: 15px;
+      border-bottom: 1px solid var(--color-hairline);
+      color: var(--color-ink-charcoal);
+    }
+
+    .pricing-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .price-highlight {
+      font-weight: 700;
+      color: var(--color-electric-cobalt);
+    }
+
+    .price-subtext {
+      font-size: 12px;
+      color: var(--color-slate-gray);
+      margin-top: 2px;
+    }
+
+    /* Calculator Widget */
+    .calc-card {
+      background: linear-gradient(180deg, #ffffff 0%, var(--color-surface-ivory) 100%);
+      border: 1px solid var(--color-powder-blue);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .calc-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .calc-form-group {
+      margin-bottom: 20px;
+    }
+
+    .calc-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--color-ink-charcoal);
+    }
+
+    .calc-options-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .calc-opt-btn {
+      flex: 1;
+      padding: 12px 14px;
+      border: 1px solid var(--color-slate-gray);
+      background: var(--color-pure-white);
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-slate-gray);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      text-align: center;
+    }
+    .calc-opt-btn:hover {
+      background: var(--color-sky-wash);
+      color: var(--color-ink-charcoal);
+      border-color: var(--color-ink-charcoal);
+    }
+    .calc-opt-btn.selected {
+      border-color: var(--color-ink-charcoal);
+      background: var(--color-ink-charcoal);
+      color: var(--color-canvas-cream);
+    }
+
+    .calc-result-box {
+      background: var(--color-electric-cobalt);
+      color: #fff;
+      border-radius: var(--radius-cards);
+      padding: 32px;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(90, 111, 68, 0.15);
+    }
+
+    .calc-total-price {
+      font-size: 40px;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 12px 0;
+    }
+
+    /* REVIEWS SECTION */
+    .reviews-marquee-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      padding: 20px 0;
+    }
+    
+    .reviews-marquee-container::before,
+    .reviews-marquee-container::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 100px;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .reviews-marquee-container::before {
+      left: 0;
+      background: linear-gradient(to right, var(--color-surface-ivory), transparent);
+    }
+    .reviews-marquee-container::after {
+      right: 0;
+      background: linear-gradient(to left, var(--color-surface-ivory), transparent);
+    }
+
+    .reviews-marquee-track {
+      display: flex;
+      gap: 24px;
+      width: max-content;
+      animation: marqueeScroll 45s linear infinite;
+    }
+
+    .reviews-marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .review-card {
+      width: 350px;
+      flex-shrink: 0;
+      background: var(--color-pure-white);
+      border: 1px solid var(--color-hairline);
+      border-radius: var(--radius-cards);
+      padding: 28px;
+      box-shadow: var(--shadow-subtle);
+      transition: var(--transition-smooth);
+    }
+
+    .review-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .review-card {
+        width: 300px;
+      }
+    }
+
+    .stars {
+      color: #ffb800;
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+
+    .review-text {
+      font-size: 15px;
+      color: #333d4b;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .reviewer-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .reviewer-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--color-lavender-mist);
+      color: var(--color-vivid-violet);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* SIGNATURE DOCK CTA BANNER */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--color-canvas-cream) 0%, var(--color-lavender-mist) 60%, var(--color-electric-cobalt) 100%);
+      border-radius: 32px;
+      padding: 70px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      margin: 60px 0;
+    }
+
+    .cta-banner h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      margin-bottom: 16px;
+      color: var(--color-ink-charcoal);
+    }
+
+    .cta-banner p {
+      font-size: 18px;
+      color: var(--color-slate-gray);
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: var(--color-pure-white);
+      border-top: 1px solid var(--color-hairline);
+      padding: 60px 0 30px;
+      font-size: 14px;
+      color: var(--color-slate-gray);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr repeat(3, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .footer-col h5 {
+      color: var(--color-ink-charcoal);
+      font-weight: 700;
+      margin-bottom: 16px;
+      font-size: 15px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col ul li a {
+      color: var(--color-slate-gray);
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--color-electric-cobalt);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--color-hairline);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(18, 23, 34, 0.6);
+      backdrop-filter: blur(6px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition-smooth);
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      background: var(--color-pure-white);
+      width: 100%;
+      max-width: 480px;
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(20px);
+      transition: var(--transition-smooth);
+    }
+
+    .modal-overlay.active .modal-card {
+      transform: translateY(0);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--color-slate-gray);
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--color-hairline);
+      border-radius: 12px;
+      margin-bottom: 16px;
+      font-family: inherit;
+      font-size: 15px;
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+
+    .form-input:focus {
+      border-color: var(--color-electric-cobalt);
+      box-shadow: 0 0 0 3px rgba(0, 104, 249, 0.15);
+    }
+
+    /* Animated Shiny Text */
+    .animated-shiny-text {
+      display: inline-block;
+      color: transparent;
+      background-image: linear-gradient(
+        120deg,
+        rgba(0, 0, 0, 0.4) 35%,
+        rgba(0, 0, 0, 0.9) 50%,
+        rgba(0, 0, 0, 0.4) 65%
+      );
+      background-size: 200% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: shine 3s linear infinite;
+    }
+
+    @keyframes shine {
+      0% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: -100% 50%;
+      }
+    }
+
+    /* Scroll Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Sparkles Text Animation */
+    @keyframes sparkle-spin {
+      0% { transform: translate(-50%, -50%) scale(0) rotate(0deg); opacity: 0; }
+      50% { transform: translate(-50%, -50%) scale(1) rotate(90deg); opacity: 1; }
+      100% { transform: translate(-50%, -50%) scale(0) rotate(180deg); opacity: 0; }
+    }
+    .sparkle-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+    .sparkle-svg {
+      position: absolute;
+      pointer-events: none;
+      animation: sparkle-spin 1.5s ease-in-out forwards;
+      z-index: 2;
+    }
+  
+    .btn-rainbow-border {
+      background: transparent;
+      color: var(--color-ink-charcoal);
+      border: 1.5px solid transparent;
+      background-image: linear-gradient(var(--color-canvas-cream), var(--color-canvas-cream)), var(--color-rainbow-spectrum);
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+      box-shadow: none;
+      transition: var(--transition-smooth);
+    }
+    .btn-rainbow-border:hover {
+      transform: translateY(-2px);
+      box-shadow: none;
+    }
+    
+    /* Pastel Green Aurora Hero Styling */
+    /* True Aceternity Aurora Background - Pastel Edition */
+    /* True Aceternity Aurora Background - Portrait Pastel Edition */
+    /* EXACT Aceternity Aurora Background - Light Theme */
+    .hero-section.aurora-theme {
+      position: relative;
+      overflow: hidden;
+      background: #fafafa !important;
+      z-index: 1;
+    }
+
+    .hero-section.aurora-theme::before {
+      content: "";
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      z-index: -1;
+      --white-gradient: repeating-linear-gradient(100deg, #ffffff 0%, #ffffff 7%, transparent 10%, transparent 12%, #ffffff 16%);
+      --aurora: repeating-linear-gradient(100deg, #3b82f6 10%, #a5b4fc 15%, #93c5fd 20%, #ddd6fe 25%, #60a5fa 30%);
+      background-image: var(--white-gradient), var(--aurora);
+      background-size: 300%, 200%;
+      background-position: 50% 50%, 50% 50%;
+      filter: blur(10px);
+      -webkit-mask-image: radial-gradient(ellipse at 100% 0%, black 10%, transparent 70%);
+      mask-image: radial-gradient(ellipse at 100% 0%, black 10%, transparent 70%);
+      animation: aurora 60s linear infinite;
+      opacity: 0.8;
+    }
+    
+    @keyframes aurora {
+      from { background-position: 50% 50%, 50% 50%; }
+      to { background-position: 350% 50%, 350% 50%; }
+    }
+    
+    .btn-rainbow-border {
+      background: transparent;
+      color: var(--color-ink-charcoal);
+      border: 1.5px solid transparent;
+      background-image: linear-gradient(var(--color-canvas-cream), var(--color-canvas-cream)), var(--color-rainbow-spectrum);
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+      box-shadow: none;
+      transition: var(--transition-smooth);
+    }
+    .btn-rainbow-border:hover {
+      transform: translateY(-2px);
+      box-shadow: none;
+    }
+    
+    .hero-content.container {
+      max-width: 1400px !important;
+      padding: 0 16px !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="navbar-inner">
+      <a href="#" class="logo">
+        <img src="logo.png?v=2" alt="Homebuddy Icon" style="height: 36px; width: auto; margin-right: 4px;">
+        <span style="font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: -0.05em; font-size: 24px;">Homebuddy</span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="#cleaning-system">8단계 케어</a></li>
+        <li><a href="#special-service">멤버십 혜택</a></li>
+        <li><a href="#comparison">서비스 요금</a></li>
+        <li><a href="#reviews">고객 리뷰</a></li>
+      </ul>
+      <div class="nav-actions">
+        <div class="sparkle-button">
+        <button class="btn btn-cobalt" onclick="openModal()">
+          <span class="spark"></span>
+        <span class="backdrop"></span>
+        <svg class="sparkle" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z" fill="black" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z" fill="black" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z" fill="black" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <span class="text">서비스 신청</span>
+        </button>
+        <span aria-hidden="true" class="particle-pen">
+        <svg class="particle" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.937 3.846L7.75 1L8.563 3.846C8.77313 4.58114 9.1671 5.25062 9.70774 5.79126C10.2484 6.3319 10.9179 6.72587 11.653 6.936L14.5 7.75L11.654 8.563C10.9189 8.77313 10.2494 9.1671 9.70874 9.70774C9.1681 10.2484 8.77413 10.9179 8.564 11.653L7.75 14.5L6.937 11.654C6.72687 10.9189 6.3329 10.2494 5.79226 9.70874C5.25162 9.1681 4.58214 8.77413 3.847 8.564L1 7.75L3.846 6.937C4.58114 6.72687 5.25062 6.3329 5.79126 5.79226C6.3319 5.25162 6.72587 4.58214 6.936 3.847L6.937 3.846Z" fill="black" stroke="black" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        <svg class="particle" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.937 3.846L7.75 1L8.563 3.846C8.77313 4.58114 9.1671 5.25062 9.70774 5.79126C10.2484 6.3319 10.9179 6.72587 11.653 6.936L14.5 7.75L11.654 8.563C10.9189 8.77313 10.2494 9.1671 9.70874 9.70774C9.1681 10.2484 8.77413 10.9179 8.564 11.653L7.75 14.5L6.937 11.654C6.72687 10.9189 6.3329 10.2494 5.79226 9.70874C5.25162 9.1681 4.58214 8.77413 3.847 8.564L1 7.75L3.846 6.937C4.58114 6.72687 5.25062 6.3329 5.79126 5.79226C6.3319 5.25162 6.72587 4.58214 6.936 3.847L6.937 3.846Z" fill="black" stroke="black" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        <svg class="particle" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.937 3.846L7.75 1L8.563 3.846C8.77313 4.58114 9.1671 5.25062 9.70774 5.79126C10.2484 6.3319 10.9179 6.72587 11.653 6.936L14.5 7.75L11.654 8.563C10.9189 8.77313 10.2494 9.1671 9.70874 9.70774C9.1681 10.2484 8.77413 10.9179 8.564 11.653L7.75 14.5L6.937 11.654C6.72687 10.9189 6.3329 10.2494 5.79226 9.70874C5.25162 9.1681 4.58214 8.77413 3.847 8.564L1 7.75L3.846 6.937C4.58114 6.72687 5.25062 6.3329 5.79126 5.79226C6.3319 5.25162 6.72587 4.58214 6.936 3.847L6.937 3.846Z" fill="black" stroke="black" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        <svg class="particle" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.937 3.846L7.75 1L8.563 3.846C8.77313 4.58114 9.1671 5.25062 9.70774 5.79126C10.2484 6.3319 10.9179 6.72587 11.653 6.936L14.5 7.75L11.654 8.563C10.9189 8.77313 10.2494 9.1671 9.70874 9.70774C9.1681 10.2484 8.77413 10.9179 8.564 11.653L7.75 14.5L6.937 11.654C6.72687 10.9189 6.3329 10.2494 5.79226 9.70874C5.25162 9.1681 4.58214 8.77413 3.847 8.564L1 7.75L3.846 6.937C4.58114 6.72687 5.25062 6.3329 5.79126 5.79226C6.3319 5.25162 6.72587 4.58214 6.936 3.847L6.937 3.846Z" fill="black" stroke="black" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        <svg class="particle" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.937 3.846L7.75 1L8.563 3.846C8.77313 4.58114 9.1671 5.25062 9.70774 5.79126C10.2484 6.3319 10.9179 6.72587 11.653 6.936L14.5 7.75L11.654 8.563C10.9189 8.77313 10.2494 9.1671 9.70874 9.70774C9.1681 10.2484 8.77413 10.9179 8.564 11.653L7.75 14.5L6.937 11.654C6.72687 10.9189 6.3329 10.2494 5.79226 9.70874C5.25162 9.1681 4.58214 8.77413 3.847 8.564L1 7.75L3.846 6.937C4.58114 6.72687 5.25062 6.3329 5.79126 5.79226C6.3319 5.25162 6.72587 4.58214 6.936 3.847L6.937 3.846Z" fill="black" stroke="black" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        <svg class="particle" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.937 3.846L7.75 1L8.563 3.846C8.77313 4.58114 9.1671 5.25062 9.70774 5.79126C10.2484 6.3319 10.9179 6.72587 11.653 6.936L14.5 7.75L11.654 8.563C10.9189 8.77313 10.2494 9.1671 9.70874 9.70774C9.1681 10.2484 8.77413 10.9179 8.564 11.653L7.75 14.5L6.937 11.654C6.72687 10.9189 6.3329 10.2494 5.79226 9.70874C5.25162 9.1681 4.58214 8.77413 3.847 8.564L1 7.75L3.846 6.937C4.58114 6.72687 5.25062 6.3329 5.79126 5.79226C6.3319 5.25162 6.72587 4.58214 6.936 3.847L6.937 3.846Z" fill="black" stroke="black" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        <svg class="particle" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.937 3.846L7.75 1L8.563 3.846C8.77313 4.58114 9.1671 5.25062 9.70774 5.79126C10.2484 6.3319 10.9179 6.72587 11.653 6.936L14.5 7.75L11.654 8.563C10.9189 8.77313 10.2494 9.1671 9.70874 9.70774C9.1681 10.2484 8.77413 10.9179 8.564 11.653L7.75 14.5L6.937 11.654C6.72687 10.9189 6.3329 10.2494 5.79226 9.70874C5.25162 9.1681 4.58214 8.77413 3.847 8.564L1 7.75L3.846 6.937C4.58114 6.72687 5.25062 6.3329 5.79126 5.79226C6.3319 5.25162 6.72587 4.58214 6.936 3.847L6.937 3.846Z" fill="black" stroke="black" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        <svg class="particle" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.937 3.846L7.75 1L8.563 3.846C8.77313 4.58114 9.1671 5.25062 9.70774 5.79126C10.2484 6.3319 10.9179 6.72587 11.653 6.936L14.5 7.75L11.654 8.563C10.9189 8.77313 10.2494 9.1671 9.70874 9.70774C9.1681 10.2484 8.77413 10.9179 8.564 11.653L7.75 14.5L6.937 11.654C6.72687 10.9189 6.3329 10.2494 5.79226 9.70874C5.25162 9.1681 4.58214 8.77413 3.847 8.564L1 7.75L3.846 6.937C4.58114 6.72687 5.25062 6.3329 5.79126 5.79226C6.3319 5.25162 6.72587 4.58214 6.936 3.847L6.937 3.846Z" fill="black" stroke="black" stroke-linecap="round" stroke-linejoin="round" /></svg>
+      </span>
+      </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section aurora-theme">
+    <div class="container hero-content">
+      <div class="hero-text-block">
+        <div class="badge badge-cobalt">✨ 단순 청소를 넘어선 프리미엄 위생 케어</div>
+        <h1 class="display-headline" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <img src="logo.png?v=2" alt="Homebuddy Icon" style="height: 1.8em; width: auto; transform: translateY(4px); margin-right: 4px;">
+            <span id="homebuddy-sparkles" class="sparkle-wrapper" style="font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: -0.05em; color: var(--color-ink-charcoal);">Homebuddy</span>만의 365일
+          </div>
+          <span style="color: var(--color-electric-cobalt);">정밀 위생 케어 시스템</span>
+        </h1>
+        <p class="hero-subtitle">
+          1년 내내 이어지는 특별한 관리, 홈버디가 1년 내내 완벽한 환경을 책임집니다.<br>
+          계절과 공간의 변화에 맞춘 홈버디만의 다양한 특수 케어 서비스로 365일 최적의 환경을 유지하세요.
+        </p>
+      </div>
+
+      <div class="hero-stats-banner">
+        <div class="hero-stat-card" style="text-align: center;">
+          <div class="hero-stat-num">8단계</div>
+          <div class="hero-stat-label">체계적인 욕실 딥클리닝 프로세스</div>
+        </div>
+        <div class="hero-stat-card" style="text-align: center;">
+          <div class="hero-stat-num">8가지</div>
+          <div class="hero-stat-label">정기구독 고객 무료 시공 혜택</div>
+        </div>
+        <div class="hero-stat-card" style="text-align: center;">
+          <div class="hero-stat-num">100%</div>
+          <div class="hero-stat-label">친환경 세제 & 이중 UV 살균 소독</div>
+        </div>
+        <div class="hero-stat-card" style="text-align: center;">
+          <div class="hero-stat-num" style="font-size: 28px;">고객만족도 1위</div>
+          <div class="hero-stat-label">정기 구독 재계약률 기준</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: 체계적인 8단계 욕실 청소 시스템 -->
+  <section id="cleaning-system" class="section reveal">
+    <div class="container">
+      <h2 class="section-title">체계적인 8단계 욕실 청소 시스템</h2>
+      <p class="section-subtitle">디테일 하나 놓치지 않는 홈버디의 과학적인 위생 케어 스텝</p>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-img-wrap">
+            <img src="images/step1_organize_1785859086448.jpg" alt="화장실물품 반출">
+          </div>
+          <div class="step-details">
+            <div class="step-badge-circle">1</div>
+            <h3 class="step-title">화장실물품 반출</h3>
+            <p class="step-desc">칫솔, 샴푸 등 개인 용품 정리 및 안전한 외부 이동</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-img-wrap">
+            <img src="images/step2_scrub_1785859095161.jpg" alt="딥클리닝 청소">
+          </div>
+          <div class="step-details">
+            <div class="step-badge-circle">2</div>
+            <h3 class="step-title">딥클리닝 청소</h3>
+            <p class="step-desc">물때, 곰팡이 구석구석 정밀 제거 및 찌든때 딥클리닝</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-img-wrap">
+            <img src="images/step3_squeegee_1785859107004.jpg" alt="물기 제거">
+          </div>
+          <div class="step-details">
+            <div class="step-badge-circle">3</div>
+            <h3 class="step-title">물기 제거</h3>
+            <p class="step-desc">타일 및 거울의 전체 물기를 신속하고 깔끔하게 제거</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-img-wrap">
+            <img src="images/step4_dry_1785859116085.jpg" alt="물기 건조">
+          </div>
+          <div class="step-details">
+            <div class="step-badge-circle">4</div>
+            <h3 class="step-title">물기 건조</h3>
+            <p class="step-desc">완벽한 송풍 건조 작업으로 세균 번식 원천 차단</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-img-wrap">
+            <img src="images/step5_uv_1785859137221.jpg" alt="UV 살균">
+          </div>
+          <div class="step-details">
+            <div class="step-badge-circle">5</div>
+            <h3 class="step-title">UV 살균</h3>
+            <p class="step-desc">강력한 UV 파장 살균기를 이용한 숨은 세균 박멸</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-img-wrap">
+            <img src="images/step6_spray_1785859148321.jpg" alt="항균 소독">
+          </div>
+          <div class="step-details">
+            <div class="step-badge-circle">6</div>
+            <h3 class="step-title">항균 소독</h3>
+            <p class="step-desc">인체 무해 피부 저자극 전용 항균 소독제 무상 살포</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-img-wrap">
+            <img src="images/step7_amenities_1785859157718.jpg" alt="물품 정리">
+          </div>
+          <div class="step-details">
+            <div class="step-badge-circle">7</div>
+            <h3 class="step-title">물품 정리</h3>
+            <p class="step-desc">반출했던 개인 용품을 깨끗하게 정돈하여 원위치</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-img-wrap">
+            <img src="images/step8_inspect_asian.jpg" alt="고객 검수">
+          </div>
+          <div class="step-details">
+            <div class="step-badge-circle">8</div>
+            <h3 class="step-title">고객 검수</h3>
+            <p class="step-desc">고객님 직접 최종 점검 및 마음에 들 때까지 마무리</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Distinct Features Section -->
+      <div style="margin-top: 120px; text-align: center;">
+        <h2 class="section-title" style="display: flex; align-items: center; justify-content: center; gap: 6px;">
+          <img src="logo.png?v=2" alt="Homebuddy Icon" style="height: 1.2em; width: auto;">
+          <span style="font-weight: 800; letter-spacing: -0.05em; margin-right: 2px;">Homebuddy</span>만의 차별화된 특징
+        </h2>
+        <p class="section-subtitle">눈에 보이지 않는 곳까지 완벽하게 케어하는 홈버디만의 3가지 특별함을 만나보세요.</p>
+        <div style="width: 48px; height: 3px; background: var(--color-electric-cobalt); margin: 0 auto 60px; border-radius: 2px;"></div>
+        
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2v1c0 5.6-4.5 10.1-10.1 10.1-3 0-5.7-1.3-7.5-3.3C3 11.8 4 14 6 15.5c2.8 2.1 6.8 2.5 10 1L11 20z" />
+              </svg>
+            </div>
+            <h4>친환경 세제 사용</h4>
+            <p>자극적인 화학 냄새 없이 안전한 친환경 전문 세제만을 사용합니다.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H5c-2.2 0-4 1.8-4 4v2" />
+                <circle cx="8.5" cy="7" r="4" />
+                <polyline points="17 11 19 13 23 9" />
+              </svg>
+            </div>
+            <h4>숙련된 전문가 팀</h4>
+            <p>엄격한 교육을 이수한 홈버디 전속 프로 위생 전문가가 책임 관리합니다.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            </div>
+            <h4>이중 살균 시스템</h4>
+            <p>UV 조사와 항균 소독 2단계 케어로 유해 세균을 99.9% 완전 사멸합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: 정기구독 멤버십 혜택 -->
+  <section id="special-service" class="section reveal" style="background: var(--color-surface-ivory);">
+    <div class="container">
+      <h2 class="section-title">정기구독 멤버십 혜택</h2>
+      <p class="section-subtitle">365일 쾌적한 위생 케어와 함께 제공되는 압도적 가입 혜택을 만나보세요.</p>
+
+      <div class="special-card-grid">
+        <div class="special-main-card">
+          <div class="special-main-card-content">
+            <span class="special-tag-free">가입 특별 혜택</span>
+            <h3>욕실 줄눈 시공 전면 무료</h3>
+            <h4>새집 같은 욕실 환경 구축</h4>
+            <p>
+              정기구독 멤버십 가입 시, 물때와 곰팡이 방지에 탁월한 프리미엄 욕실 줄눈 시공을 1회 전면 무료로 제공합니다. 전문가의 섬세한 타일 마감 작업을 통해 오염을 방지하고 훨씬 더 청결한 욕실을 유지해 드립니다.
+            </p>
+          </div>
+          <div class="special-main-card-image"></div>
+        </div>
+
+        <div>
+          <h3 class="animated-shiny-text" style="font-size:20px; margin-bottom:16px;">정기구독 무료 시공 리스트 (8대 무료 케어)</h3>
+          <div class="free-services-grid">
+            <div class="free-service-item">
+              <div class="service-img-wrap">
+                <img src="images/service_1_silicone_1785941166080.jpg" alt="실리콘 시공">
+              </div>
+              <div class="service-content">
+                <div class="service-title"><span class="service-num-badge">1</span> 실리콘 시공</div>
+                <div class="service-desc">곰팡이로 오염된 기존 실리콘 전면 제거 및 변색 방지 항균 실리콘으로 재시공</div>
+              </div>
+            </div>
+            <div class="free-service-item">
+              <div class="service-img-wrap">
+                <img src="images/service_2_coating_1785941177355.jpg" alt="수전/유리 나노코팅">
+              </div>
+              <div class="service-content">
+                <div class="service-title"><span class="service-num-badge">2</span> 수전/유리 나노코팅</div>
+                <div class="service-desc">거울과 샤워부스 유리에 특수 코팅을 적용하여 물때 방지 및 지속적인 방수 효과 제공</div>
+              </div>
+            </div>
+            <div class="free-service-item">
+              <div class="service-img-wrap">
+                <img src="images/service_3_faucet_1785941189502.jpg" alt="수전 교체">
+              </div>
+              <div class="service-content">
+                <div class="service-title"><span class="service-num-badge">3</span> 수전 교체</div>
+                <div class="service-desc">광택을 잃고 낡은 수전을 모던하고 깔끔한 새 수전으로 교체하여 세련된 욕실 분위기 연출</div>
+              </div>
+            </div>
+            <div class="free-service-item">
+              <div class="service-img-wrap">
+                <img src="images/service_4_toilet_base_1785941199492.jpg" alt="변기 백시멘트 시공">
+              </div>
+              <div class="service-content">
+                <div class="service-title"><span class="service-num-badge">4</span> 변기 백시멘트 시공</div>
+                <div class="service-desc">흔들리거나 깨진 변기 하단 백시멘트를 견고하게 재시공하여 악취 역류 원천 차단</div>
+              </div>
+            </div>
+            <div class="free-service-item">
+              <div class="service-img-wrap">
+                <img src="images/service_5_drain_1785941210865.jpg" alt="욕실 배관 내부청소">
+              </div>
+              <div class="service-content">
+                <div class="service-title"><span class="service-num-badge">5</span> 욕실 배관 내부청소</div>
+                <div class="service-desc">머리카락과 이물질로 막힌 배관 내부를 전문 장비로 청소하여 원활하고 시원한 배수 지원</div>
+              </div>
+            </div>
+            <div class="free-service-item">
+              <div class="service-img-wrap">
+                <img src="images/service_6_spout_1785941222215.jpg" alt="수전 토출구 교체">
+              </div>
+              <div class="service-content">
+                <div class="service-title"><span class="service-num-badge">6</span> 수전 토출구 교체</div>
+                <div class="service-desc">세균이 번식하기 쉬운 수전 토출구 부품을 위생적인 필터형 및 새 부품으로 교체</div>
+              </div>
+            </div>
+            <div class="free-service-item">
+              <div class="service-img-wrap">
+                <img src="images/service_7_light_1785941232600.jpg" alt="욕실 전등 교체">
+              </div>
+              <div class="service-content">
+                <div class="service-title"><span class="service-num-badge">7</span> 욕실 전등 교체</div>
+                <div class="service-desc">침침했던 기존 욕실 조명을 고효율 LED 전등으로 교체하여 화사하고 밝은 환경 조성</div>
+              </div>
+            </div>
+            <div class="free-service-item">
+              <div class="service-img-wrap">
+                <img src="images/service_8_trap_1785941243219.jpg" alt="배수구 트랩 설치">
+              </div>
+              <div class="service-content">
+                <div class="service-title"><span class="service-num-badge">8</span> 배수구 트랩 설치</div>
+                <div class="service-desc">하수구 깊은 곳에서 올라오는 악취와 벌레 침입을 완벽하게 차단하는 전용 트랩 설치</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: 비용 & 서비스 비교 -->
+  <style>
+    .comparison-section {
+      padding: 80px 20px;
+      background: transparent;
+      overflow: hidden;
+    }
+    .comparison-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .comparison-section .section-title span {
+      color: var(--color-electric-cobalt);
+    }
+    .comparison-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: relative;
+      align-items: center;
+    }
+    @media (min-width: 768px) {
+      .comparison-grid {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 80px;
+      }
+    }
+    .comp-card {
+      width: 100%;
+      max-width: 480px;
+      border-radius: 24px;
+      padding: 40px 24px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    /* 타사 카드 (작고 흐리게) */
+    .comp-card.other {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    @media (min-width: 768px) {
+      .comp-card.other {
+        transform: scale(0.95);
+        transform-origin: center right;
+        z-index: 1;
+      }
+    }
+    
+    /* 홈버디 카드 (크고 선명하게) */
+    .comp-card.homebuddy {
+      background: #ffffff;
+      border: 2px solid var(--color-electric-cobalt);
+      box-shadow: 0 20px 50px rgba(59, 130, 246, 0.15);
+      z-index: 2;
+    }
+    @media (min-width: 768px) {
+      .comp-card.homebuddy {
+        transform: scale(1.05);
+        transform-origin: center left;
+      }
+    }
+    
+    .comp-header {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    
+    /* 타사 제목 */
+    .other-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #94a3b8;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 32px;
+    }
+    
+    /* 홈버디 제목 (로고 적용) */
+    .homebuddy-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      height: 32px;
+    }
+    .homebuddy-title img {
+      height: 28px;
+      width: auto;
+    }
+    .homebuddy-title span {
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      color: var(--color-ink-charcoal);
+    }
+
+    .comp-price-badge {
+      display: inline-block;
+      padding: 12px 32px;
+      border-radius: 50px;
+      font-size: 22px;
+      font-weight: 800;
+      color: #ffffff;
+      position: relative;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    }
+    .comp-card.other .comp-price-badge {
+      background: #94a3b8; /* Muted gray */
+    }
+    .comp-card.homebuddy .comp-price-badge {
+      background: var(--color-electric-cobalt);
+      font-size: 26px;
+      padding: 14px 40px;
+    }
+    .comp-price-badge::before {
+      content: '';
+      position: absolute;
+      left: -12px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-width: 12px 14px 12px 0;
+      border-style: solid;
+    }
+    .comp-card.other .comp-price-badge::before {
+      border-color: transparent #94a3b8 transparent transparent;
+    }
+    .comp-card.homebuddy .comp-price-badge::before {
+      border-color: transparent var(--color-electric-cobalt) transparent transparent;
+    }
+    .comp-price-badge::after {
+      content: '';
+      position: absolute;
+      left: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      background: #cbd5e1;
+      border-radius: 50%;
+    }
+
+    .comp-divider {
+      width: 80%;
+      height: 1px;
+      background: var(--color-hairline);
+      margin: 24px 0;
+    }
+
+    .comp-features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px 16px;
+      width: 100%;
+    }
+    .feature-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .feature-icon {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+    .comp-card.other .feature-icon {
+      filter: grayscale(100%) opacity(0.5);
+    }
+    .comp-card.homebuddy .feature-icon {
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+      animation: bounce-soft 3s infinite;
+    }
+    .feature-text {
+      font-size: 15px;
+      font-weight: 700;
+      color: #94a3b8;
+      word-break: keep-all;
+    }
+    .comp-card.homebuddy .feature-text {
+      color: var(--color-ink-charcoal);
+      font-size: 16px;
+    }
+    
+    .vs-divider {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: 900;
+      font-style: italic;
+      color: #cbd5e1;
+      z-index: 10;
+      padding: 8px;
+    }
+    @media (min-width: 768px) {
+      .vs-divider {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 70px;
+        height: 70px;
+        background: #ffffff;
+        border-radius: 50%;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        color: var(--color-electric-cobalt);
+        animation: pulse-vs 2.5s infinite ease-in-out;
+      }
+    }
+    
+    @keyframes pulse-vs {
+      0% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(-50%, -50%) scale(1.15); }
+      100% { transform: translate(-50%, -50%) scale(1); }
+    }
+    
+    @keyframes bounce-soft {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+  </style>
+
+  <section id="comparison" class="comparison-section reveal">
+    <div class="comparison-container">
+      <h2 class="section-title">비교할 수 없는 <span>압도적 가성비와 퀄리티</span></h2>
+      <p class="section-subtitle" style="margin-bottom: 64px;">타사 대비 확실한 홈버디만의 압도적인 서비스를 직접 비교해 보세요.</p>
+      
+      <div class="comparison-grid">
+        <!-- 타사 -->
+        <div class="comp-card other">
+          <div class="comp-header">
+            <div class="other-title">타사 화장실 청소</div>
+            <div class="comp-price-badge">1회 비용: 110,000원</div>
+          </div>
+          
+          <div class="comp-divider"></div>
+          
+          <div class="comp-features-grid">
+            <div class="feature-item">
+              <div class="feature-icon">🧽</div>
+              <div class="feature-text">기본도구 청소</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">🧹</div>
+              <div class="feature-text">일반 청소</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">⏳</div>
+              <div class="feature-text">비체계적인 관리</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">😞<br><span style="font-size:12px; letter-spacing:-2px; color:#cbd5e1;">⭐⭐</span></div>
+              <div class="feature-text">고객 불만족</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="vs-divider">VS</div>
+
+        <!-- 홈버디 -->
+        <div class="comp-card homebuddy">
+          <div class="comp-header">
+            <div class="homebuddy-title">
+              <img src="logo.png?v=2" alt="Homebuddy">
+              <span>Homebuddy</span>
+            </div>
+            <div class="comp-price-badge">
+              <span style="font-size:20px; margin-right:6px;">✨</span> 1회 비용: 50,000원
+            </div>
+          </div>
+          
+          <div class="comp-divider"></div>
+          
+          <div class="comp-features-grid">
+            <div class="feature-item">
+              <div class="feature-icon">🚿💦</div>
+              <div class="feature-text">고압 세척기, 전문 약품</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">✨</div>
+              <div class="feature-text">딥 클리닝 & 살균</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">📅</div>
+              <div class="feature-text">체계적인 정기 관리</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">🤩<br><span style="font-size:12px; letter-spacing:-2px; color:#fbbf24;">⭐⭐⭐⭐⭐</span></div>
+              <div class="feature-text">고객 만족도 100%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: 합리적인 금액 (단가표 & 계산기) -->
+  <section id="pricing" class="section reveal">
+    <div class="container">
+      <h2 class="section-title" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+        <img src="logo.png?v=2" alt="Homebuddy Icon" style="height: 1.2em; width: auto;">
+        <span style="font-weight: 800; letter-spacing: -0.05em; margin-right: 2px;">Homebuddy</span>만의 합리적인 가격
+      </h2>
+      <p class="section-subtitle">투명하고 합리적인 요금 체계로 부담 없이 최고의 위생 상태를 유지하세요.</p>
+
+      <div class="pricing-tabs">
+        <button class="pricing-tab-btn active" onclick="switchPriceTab('single')">원데이 케어 (1회)</button>
+        <button class="pricing-tab-btn" onclick="switchPriceTab('sub')">정기 구독</button>
+      </div>
+
+      <!-- Tab 1: 1회성 -->
+      <div id="tab-single" class="pricing-table-container">
+        <table class="pricing-table" style="table-layout: fixed;">
+          <thead>
+            <tr>
+              <th style="width: 25%;">평수</th>
+              <th style="width: 25%;">욕실 개수</th>
+              <th style="width: 50%;">1회 케어 단가</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="height: 64px;">
+              <td rowspan="2" style="border-right: 1px solid var(--color-hairline); vertical-align: middle;"><strong>4평 ~ 36평</strong></td>
+              <td>욕실 1개</td>
+              <td class="price-highlight">80,000원</td>
+            </tr>
+            <tr style="height: 64px;">
+              <td>욕실 2개</td>
+              <td class="price-highlight">150,000원</td>
+            </tr>
+            <tr style="height: 64px;">
+              <td rowspan="2" style="border-right: 1px solid var(--color-hairline); vertical-align: middle; border-top: 1px solid var(--color-hairline);"><strong>37평 ~ 45평</strong></td>
+              <td style="border-top: 1px solid var(--color-hairline);">욕실 1개</td>
+              <td class="price-highlight" style="border-top: 1px solid var(--color-hairline);">90,000원</td>
+            </tr>
+            <tr style="height: 64px;">
+              <td>욕실 2개</td>
+              <td class="price-highlight">170,000원</td>
+            </tr>
+            <tr style="height: 64px;">
+              <td rowspan="2" style="border-right: 1px solid var(--color-hairline); vertical-align: middle; border-top: 1px solid var(--color-hairline);"><strong>45평 이상</strong></td>
+              <td style="border-top: 1px solid var(--color-hairline);">욕실 1개</td>
+              <td class="price-highlight" style="border-top: 1px solid var(--color-hairline);">100,000원</td>
+            </tr>
+            <tr style="height: 64px;">
+              <td>욕실 2개</td>
+              <td class="price-highlight">190,000원</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Tab 2: 정기구독 -->
+      <div id="tab-sub" class="pricing-table-container" style="display:none;">
+        <div style="text-align: center; margin-bottom: 16px;">
+          <span class="badge" style="font-size: 14px; padding: 6px 12px; background: rgba(59,130,246,0.1); color: var(--color-electric-cobalt); border: 1px solid var(--color-electric-cobalt);">💡 정기구독 횟수가 늘어날수록 회당 단가가 크게 낮아집니다!</span>
+        </div>
+        <table class="pricing-table" style="table-layout: fixed;">
+          <thead>
+            <tr>
+              <th style="width: 16%; padding: 16px 8px; text-align: center;">평수</th>
+              <th style="width: 12%; padding: 16px 8px; text-align: center;">욕실</th>
+              <th style="width: 18%; padding: 16px 8px; text-align: center;">초기 비용</th>
+              <th style="width: 18%; padding: 16px 8px; text-align: center;">월 1회</th>
+              <th style="width: 18%; padding: 16px 8px; text-align: center;">월 2회</th>
+              <th style="width: 18%; padding: 16px 8px; text-align: center;">월 4회</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="height: 64px; text-align: center;">
+              <td rowspan="2" style="border-right: 1px solid var(--color-hairline); vertical-align: middle;"><strong>4평 ~ 36평</strong></td>
+              <td>1개</td>
+              <td>80,000원</td>
+              <td class="price-highlight">
+                <span style="text-decoration:line-through; font-size:11px; color:var(--color-slate-gray);">80,000원</span> <span style="font-size:11px; color:var(--color-sunset-orange); font-weight:bold;">(-31%)</span><br>
+                <strong style="font-size:15px;">55,000원</strong>
+              </td>
+              <td>
+                <span style="text-decoration:line-through; font-size:11px; color:var(--color-slate-gray);">160,000원</span> <span style="font-size:11px; color:var(--color-sunset-orange); font-weight:bold;">(-37%)</span><br>
+                <strong style="font-size:15px;">100,000원</strong><br>
+                <span style="font-size:11px; color:var(--color-electric-cobalt);">(1회당 50,000원)</span>
+              </td>
+              <td>
+                <span style="text-decoration:line-through; font-size:11px; color:var(--color-slate-gray);">320,000원</span> <span style="font-size:11px; color:var(--color-sunset-orange); font-weight:bold;">(-43%)</span><br>
+                <strong style="font-size:15px;">180,000원</strong><br>
+                <span style="font-size:11px; color:var(--color-electric-cobalt);">(1회당 45,000원)</span>
+              </td>
+            </tr>
+            <tr style="height: 64px; text-align: center;">
+              <td>2개</td>
+              <td>150,000원</td>
+              <td class="price-highlight">
+                <span style="text-decoration:line-through; font-size:11px; color:var(--color-slate-gray);">150,000원</span> <span style="font-size:11px; color:var(--color-sunset-orange); font-weight:bold;">(-34%)</span><br>
+                <strong style="font-size:15px;">99,000원</strong>
+              </td>
+              <td>
+                <span style="text-decoration:line-through; font-size:11px; color:var(--color-slate-gray);">300,000원</span> <span style="font-size:11px; color:var(--color-sunset-orange); font-weight:bold;">(-40%)</span><br>
+                <strong style="font-size:15px;">179,000원</strong><br>
+                <span style="font-size:11px; color:var(--color-electric-cobalt);">(1회당 89,500원)</span>
+              </td>
+              <td>
+                <span style="text-decoration:line-through; font-size:11px; color:var(--color-slate-gray);">600,000원</span> <span style="font-size:11px; color:var(--color-sunset-orange); font-weight:bold;">(-46%)</span><br>
+                <strong style="font-size:15px;">319,000원</strong><br>
+                <span style="font-size:11px; color:var(--color-electric-cobalt);">(1회당 79,750원)</span>
+              </td>
+            </tr>
+            <tr style="height: 64px; text-align: center;">
+              <td rowspan="2" style="border-right: 1px solid var(--color-hairline); vertical-align: middle; border-top: 1px solid var(--color-hairline);"><strong>37평 ~ 45평</strong></td>
+              <td style="border-top: 1px solid var(--color-hairline);">1개</td>
+              <td style="border-top: 1px solid var(--color-hairline);">90,000원</td>
+              <td class="price-highlight" style="border-top: 1px solid var(--color-hairline);">
+                <span style="text-decoration:line-through; font-size:11px; color:var(--color-slate-gray);">90,000원</span> <span style="font-size:11px; color:var(--color-sunset-orange); font-weight:bold;">(-33%)</span><br>
+                <strong style="font-size:15px;">60,000원</strong>
+              </td>
+              <td style="border-top: 1px solid var(--color-hairline);">
+                <span style="text-decoration:line-through; font-size:11px; color:var(--color-slate-gray);">180,000원</span> <span style="font-size:11px; color:var(--color-sunset-orange); font-weight:bold;">(-38%)</span><br>
+                <strong style="font-size:15px;">110,000원</strong><br>
+                <span style="font-size:11px; color:var(--color-electric-cobalt);">(1회당 55,000원)</span>
+              </td>
+              <td style="border-top: 1px solid var(--color-hairline);">
+                <span style="text-decoration:line-through; font-size:11px; color:var(--color-slate-gray);">360,000원</span> <span style="font-size:11px; color:var(--color-sunset-orange); font-weight:bold;">(-44%)</span><br>
+                <strong style="font-size:15px;">200,000원</strong><br>
+                <span style="font-size:11px; color:var(--color-electric-cobalt);">(1회당 50,000원)</span>
+              </td>
+            </tr>
+            <tr style="height: 64px; text-align: center;">
+              <td>2개</td>
+              <td>170,000원</td>
+              <td class="price-highlight">
+                <span style="text-decoration:line-through; font-size:11px; color:var(--color-slate-gray);">170,000원</span> <span style="font-size:11px; color:var(--color-sunset-orange); font-weight:bold;">(-35%)</span><br>
+                <strong style="font-size:15px;">109,000원</strong>
+              </td>
+              <td>
+                <span style="text-decoration:line-through; font-size:11px; color:var(--color-slate-gray);">340,000원</span> <span style="font-size:11px; color:var(--color-sunset-orange); font-weight:bold;">(-41%)</span><br>
+                <strong style="font-size:15px;">199,000원</strong><br>
+                <span style="font-size:11px; color:var(--color-electric-cobalt);">(1회당 99,500원)</span>
+              </td>
+              <td>
+                <span style="text-decoration:line-through; font-size:11px; color:var(--color-slate-gray);">680,000원</span> <span style="font-size:11px; color:var(--color-sunset-orange); font-weight:bold;">(-50%)</span><br>
+                <strong style="font-size:15px;">339,000원</strong><br>
+                <span style="font-size:11px; color:var(--color-electric-cobalt);">(1회당 84,750원)</span>
+              </td>
+            </tr>
+            <tr style="height: 64px; text-align: center;">
+              <td rowspan="2" style="border-right: 1px solid var(--color-hairline); vertical-align: middle; border-top: 1px solid var(--color-hairline);"><strong>45평 이상</strong></td>
+              <td style="border-top: 1px solid var(--color-hairline);">1개</td>
+              <td style="border-top: 1px solid var(--color-hairline);">100,000원</td>
+              <td class="price-highlight" style="border-top: 1px solid var(--color-hairline);">
+                <span style="text-decoration:line-through; font-size:11px; color:var(--color-slate-gray);">100,000원</span> <span style="font-size:11px; color:var(--color-sunset-orange); font-weight:bold;">(-35%)</span><br>
+                <strong style="font-size:15px;">65,000원</strong>
+              </td>
+              <td style="border-top: 1px solid var(--color-hairline);">
+                <span style="text-decoration:line-through; font-size:11px; color:var(--color-slate-gray);">200,000원</span> <span style="font-size:11px; color:var(--color-sunset-orange); font-weight:bold;">(-40%)</span><br>
+                <strong style="font-size:15px;">120,000원</strong><br>
+                <span style="font-size:11px; color:var(--color-electric-cobalt);">(1회당 60,000원)</span>
+              </td>
+              <td style="border-top: 1px solid var(--color-hairline);">
+                <span style="text-decoration:line-through; font-size:11px; color:var(--color-slate-gray);">400,000원</span> <span style="font-size:11px; color:var(--color-sunset-orange); font-weight:bold;">(-45%)</span><br>
+                <strong style="font-size:15px;">220,000원</strong><br>
+                <span style="font-size:11px; color:var(--color-electric-cobalt);">(1회당 55,000원)</span>
+              </td>
+            </tr>
+            <tr style="height: 64px; text-align: center;">
+              <td>2개</td>
+              <td>190,000원</td>
+              <td class="price-highlight">
+                <span style="text-decoration:line-through; font-size:11px; color:var(--color-slate-gray);">190,000원</span> <span style="font-size:11px; color:var(--color-sunset-orange); font-weight:bold;">(-37%)</span><br>
+                <strong style="font-size:15px;">119,000원</strong>
+              </td>
+              <td>
+                <span style="text-decoration:line-through; font-size:11px; color:var(--color-slate-gray);">380,000원</span> <span style="font-size:11px; color:var(--color-sunset-orange); font-weight:bold;">(-42%)</span><br>
+                <strong style="font-size:15px;">219,000원</strong><br>
+                <span style="font-size:11px; color:var(--color-electric-cobalt);">(1회당 109,500원)</span>
+              </td>
+              <td>
+                <span style="text-decoration:line-through; font-size:11px; color:var(--color-slate-gray);">760,000원</span> <span style="font-size:11px; color:var(--color-sunset-orange); font-weight:bold;">(-52%)</span><br>
+                <strong style="font-size:15px;">359,000원</strong><br>
+                <span style="font-size:11px; color:var(--color-electric-cobalt);">(1회당 89,750원)</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Interactive Calculator Widget -->
+      <div class="calc-card">
+        <h3 style="font-size:24px; margin-bottom:8px; text-align:center;">💡 우리 집 맞춤 예상 견적 계산기</h3>
+        <p style="text-align:center; color:var(--color-slate-gray); margin-bottom:32px;">서비스 유형, 평수, 욕실 개수를 선택하시면 최적의 맞춤 단가를 즉시 확인해 드립니다.</p>
+
+        <div class="calc-grid">
+          <div>
+            <div class="calc-form-group">
+              <label class="calc-label">1. 서비스 유형</label>
+              <div class="calc-options-row">
+                <button class="calc-opt-btn selected" onclick="setCalcOption('type', 'once', this)">원데이 케어 (1회)</button>
+                <button class="calc-opt-btn" onclick="setCalcOption('type', 'sub', this)">정기 구독</button>
+              </div>
+            </div>
+
+            <div class="calc-form-group">
+              <label class="calc-label">2. 평수 선택</label>
+              <div class="calc-options-row">
+                <button class="calc-opt-btn selected" onclick="setCalcOption('size', 0, this)">4~36평</button>
+                <button class="calc-opt-btn" onclick="setCalcOption('size', 1, this)">37~45평</button>
+                <button class="calc-opt-btn" onclick="setCalcOption('size', 2, this)">45평 이상</button>
+              </div>
+            </div>
+
+            <div class="calc-form-group">
+              <label class="calc-label">3. 욕실 개수</label>
+              <div class="calc-options-row">
+                <button class="calc-opt-btn selected" onclick="setCalcOption('bath', 1, this)">욕실 1개</button>
+                <button class="calc-opt-btn" onclick="setCalcOption('bath', 2, this)">욕실 2개</button>
+              </div>
+            </div>
+
+            <div class="calc-form-group" id="freq-group" style="display:none;">
+              <label class="calc-label">4. 방문 주기 (정기 구독)</label>
+              <div class="calc-options-row">
+                <button class="calc-opt-btn selected" onclick="setCalcOption('freq', 'm1', this)">월 1회</button>
+                <button class="calc-opt-btn" onclick="setCalcOption('freq', 'm2', this)">월 2회</button>
+                <button class="calc-opt-btn" onclick="setCalcOption('freq', 'm4', this)">월 4회 (프리미엄)</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="calc-result-box">
+            <div style="font-size:14px; opacity:0.9;" id="calcTitleDisplay">선택하신 조건의 원데이 케어 (1회) 이용료</div>
+            <div class="calc-total-price" id="calcPriceDisplay">80,000원</div>
+            <div id="calcInitFee" style="font-size:13px; color:rgba(255,255,255,0.8); margin-bottom:20px;">(원데이 케어 서비스 적용)</div>
+            <button class="btn btn-rainbow-border" style="width:100%; font-size:16px;" onclick="openModal()">이 견적으로 상담 예약하기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: 고객 이용 후기 -->
+  <section id="reviews" class="section reveal" style="background: var(--color-surface-ivory);">
+    <div class="container">
+      <h2 class="section-title">실제 이용 고객들의 진솔한 후기</h2>
+      <p class="section-subtitle">홈버디 정기 구독 서비스를 통해 새로워진 욕실과 일상을 확인해 보세요.</p>
+
+      <div class="reviews-marquee-container">
+        <div class="reviews-marquee-track">
+          <!-- ORIGINAL 8 REVIEWS -->
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"아이 있는 집이라 줄눈 곰팡이가 제일 신경 쓰였는데, 정기 구독 가입으로 무료 줄눈 시공까지 완벽하게 해주셔서 새 아파트 욕실이 되었어요. 세제도 친환경이라 안심입니다."</p>
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">김</div>
+              <div>
+                <div style="font-weight:700; font-size:15px;">김○진 고객님</div>
+                <div style="font-size:13px; color:var(--color-slate-gray);">송파구 34평형 (욕실 2개, 월 2회)</div>
+              </div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"바쁜 맞벌이 부부에게 최고의 선택입니다! 청소 후 UV 살균 소독과 배관 청소까지 8단계로 철저히 진행해 주시니 수전이 매일 호텔처럼 반짝거립니다."</p>
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">박</div>
+              <div>
+                <div style="font-weight:700; font-size:15px;">박○우 고객님</div>
+                <div style="font-size:13px; color:var(--color-slate-gray);">마포구 40평형 (욕실 2개, 월 4회)</div>
+              </div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"오래된 빌라라 하수구 냄새가 매번 올라왔는데 배수구 트랩 설치부터 나노코팅까지 정기 케어에 포함되어 있어서 정말 가성비 최고입니다. 강추합니다!"</p>
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">이</div>
+              <div>
+                <div style="font-weight:700; font-size:15px;">이○영 고객님</div>
+                <div style="font-size:13px; color:var(--color-slate-gray);">분당구 28평형 (욕실 1개, 월 1회)</div>
+              </div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"처음엔 반신반의했는데, 화장실에 들어갈 때마다 상쾌한 향이 나서 너무 기분이 좋아요. 꼼꼼한 서비스에 100% 만족합니다!"</p>
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">최</div>
+              <div>
+                <div style="font-weight:700; font-size:15px;">최○훈 고객님</div>
+                <div style="font-size:13px; color:var(--color-slate-gray);">강남구 45평형 (욕실 2개, 월 2회)</div>
+              </div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"전세집이라 수전 교체가 부담스러웠는데 무료 혜택으로 바꿔주셔서 감동했습니다. 세세한 곳까지 신경써주시는 게 느껴집니다."</p>
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">정</div>
+              <div>
+                <div style="font-weight:700; font-size:15px;">정○미 고객님</div>
+                <div style="font-size:13px; color:var(--color-slate-gray);">서초구 24평형 (욕실 1개, 월 2회)</div>
+              </div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"샤워부스 물때가 아무리 닦아도 안지워졌는데 나노코팅 덕분에 이제 물로만 씻어내도 금방 지워집니다! 삶의 질이 올라갔어요."</p>
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">윤</div>
+              <div>
+                <div style="font-weight:700; font-size:15px;">윤○석 고객님</div>
+                <div style="font-size:13px; color:var(--color-slate-gray);">판교 32평형 (욕실 2개, 월 1회)</div>
+              </div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"반려동물이 화장실을 써서 위생이 늘 걱정이었는데, 항균 소독 덕분에 특유의 냄새가 완전히 사라졌어요. 마음이 놓입니다."</p>
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">강</div>
+              <div>
+                <div style="font-weight:700; font-size:15px;">강○희 고객님</div>
+                <div style="font-size:13px; color:var(--color-slate-gray);">용산구 38평형 (욕실 2개, 월 4회)</div>
+              </div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"청소 뿐만 아니라 디스펜서, 칫솔 등 정리정돈까지 호텔식으로 각 맞춰 해주셔서 퇴근 후 욕실 볼 때마다 힐링됩니다."</p>
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">조</div>
+              <div>
+                <div style="font-weight:700; font-size:15px;">조○민 고객님</div>
+                <div style="font-size:13px; color:var(--color-slate-gray);">동작구 30평형 (욕실 1개, 월 2회)</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- DUPLICATED 8 REVIEWS FOR INFINITE SCROLL -->
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"아이 있는 집이라 줄눈 곰팡이가 제일 신경 쓰였는데, 정기 구독 가입으로 무료 줄눈 시공까지 완벽하게 해주셔서 새 아파트 욕실이 되었어요. 세제도 친환경이라 안심입니다."</p>
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">김</div>
+              <div>
+                <div style="font-weight:700; font-size:15px;">김○진 고객님</div>
+                <div style="font-size:13px; color:var(--color-slate-gray);">송파구 34평형 (욕실 2개, 월 2회)</div>
+              </div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"바쁜 맞벌이 부부에게 최고의 선택입니다! 청소 후 UV 살균 소독과 배관 청소까지 8단계로 철저히 진행해 주시니 수전이 매일 호텔처럼 반짝거립니다."</p>
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">박</div>
+              <div>
+                <div style="font-weight:700; font-size:15px;">박○우 고객님</div>
+                <div style="font-size:13px; color:var(--color-slate-gray);">마포구 40평형 (욕실 2개, 월 4회)</div>
+              </div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"오래된 빌라라 하수구 냄새가 매번 올라왔는데 배수구 트랩 설치부터 나노코팅까지 정기 케어에 포함되어 있어서 정말 가성비 최고입니다. 강추합니다!"</p>
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">이</div>
+              <div>
+                <div style="font-weight:700; font-size:15px;">이○영 고객님</div>
+                <div style="font-size:13px; color:var(--color-slate-gray);">분당구 28평형 (욕실 1개, 월 1회)</div>
+              </div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"처음엔 반신반의했는데, 화장실에 들어갈 때마다 상쾌한 향이 나서 너무 기분이 좋아요. 꼼꼼한 서비스에 100% 만족합니다!"</p>
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">최</div>
+              <div>
+                <div style="font-weight:700; font-size:15px;">최○훈 고객님</div>
+                <div style="font-size:13px; color:var(--color-slate-gray);">강남구 45평형 (욕실 2개, 월 2회)</div>
+              </div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"전세집이라 수전 교체가 부담스러웠는데 무료 혜택으로 바꿔주셔서 감동했습니다. 세세한 곳까지 신경써주시는 게 느껴집니다."</p>
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">정</div>
+              <div>
+                <div style="font-weight:700; font-size:15px;">정○미 고객님</div>
+                <div style="font-size:13px; color:var(--color-slate-gray);">서초구 24평형 (욕실 1개, 월 2회)</div>
+              </div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"샤워부스 물때가 아무리 닦아도 안지워졌는데 나노코팅 덕분에 이제 물로만 씻어내도 금방 지워집니다! 삶의 질이 올라갔어요."</p>
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">윤</div>
+              <div>
+                <div style="font-weight:700; font-size:15px;">윤○석 고객님</div>
+                <div style="font-size:13px; color:var(--color-slate-gray);">판교 32평형 (욕실 2개, 월 1회)</div>
+              </div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"반려동물이 화장실을 써서 위생이 늘 걱정이었는데, 항균 소독 덕분에 특유의 냄새가 완전히 사라졌어요. 마음이 놓입니다."</p>
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">강</div>
+              <div>
+                <div style="font-weight:700; font-size:15px;">강○희 고객님</div>
+                <div style="font-size:13px; color:var(--color-slate-gray);">용산구 38평형 (욕실 2개, 월 4회)</div>
+              </div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"청소 뿐만 아니라 디스펜서, 칫솔 등 정리정돈까지 호텔식으로 각 맞춰 해주셔서 퇴근 후 욕실 볼 때마다 힐링됩니다."</p>
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">조</div>
+              <div>
+                <div style="font-weight:700; font-size:15px;">조○민 고객님</div>
+                <div style="font-size:13px; color:var(--color-slate-gray);">동작구 30평형 (욕실 1개, 월 2회)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Signature Dock Electric Blue CTA Banner -->
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2 style="line-height: 1.5;">
+        365일 쾌적한 우리 집 욕실, 지금<br>
+        <span style="display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
+          <img src="logo.png?v=2" alt="Homebuddy Icon" style="height: 1.1em; width: auto;">
+          <span style="font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: -0.05em; margin-top: 4px;">Homebuddy</span>
+        </span> 
+        정밀 케어로 시작하세요
+      </h2>
+      <p>가입 시 8대 무료 시공 혜택 및 무료 줄눈 시공 프로모션 진행 중</p>
+      <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+        <div class="sparkle-button">
+        <button class="btn btn-cobalt btn-lg" onclick="openModal()">
+          <span class="spark"></span>
+        <span class="backdrop"></span>
+        <svg class="sparkle" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z" fill="black" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z" fill="black" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z" fill="black" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <span class="text">서비스 신청</span>
+        </button>
+        <span aria-hidden="true" class="particle-pen">
+        <svg class="particle" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.937 3.846L7.75 1L8.563 3.846C8.77313 4.58114 9.1671 5.25062 9.70774 5.79126C10.2484 6.3319 10.9179 6.72587 11.653 6.936L14.5 7.75L11.654 8.563C10.9189 8.77313 10.2494 9.1671 9.70874 9.70774C9.1681 10.2484 8.77413 10.9179 8.564 11.653L7.75 14.5L6.937 11.654C6.72687 10.9189 6.3329 10.2494 5.79226 9.70874C5.25162 9.1681 4.58214 8.77413 3.847 8.564L1 7.75L3.846 6.937C4.58114 6.72687 5.25062 6.3329 5.79126 5.79226C6.3319 5.25162 6.72587 4.58214 6.936 3.847L6.937 3.846Z" fill="black" stroke="black" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        <svg class="particle" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.937 3.846L7.75 1L8.563 3.846C8.77313 4.58114 9.1671 5.25062 9.70774 5.79126C10.2484 6.3319 10.9179 6.72587 11.653 6.936L14.5 7.75L11.654 8.563C10.9189 8.77313 10.2494 9.1671 9.70874 9.70774C9.1681 10.2484 8.77413 10.9179 8.564 11.653L7.75 14.5L6.937 11.654C6.72687 10.9189 6.3329 10.2494 5.79226 9.70874C5.25162 9.1681 4.58214 8.77413 3.847 8.564L1 7.75L3.846 6.937C4.58114 6.72687 5.25062 6.3329 5.79126 5.79226C6.3319 5.25162 6.72587 4.58214 6.936 3.847L6.937 3.846Z" fill="black" stroke="black" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        <svg class="particle" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.937 3.846L7.75 1L8.563 3.846C8.77313 4.58114 9.1671 5.25062 9.70774 5.79126C10.2484 6.3319 10.9179 6.72587 11.653 6.936L14.5 7.75L11.654 8.563C10.9189 8.77313 10.2494 9.1671 9.70874 9.70774C9.1681 10.2484 8.77413 10.9179 8.564 11.653L7.75 14.5L6.937 11.654C6.72687 10.9189 6.3329 10.2494 5.79226 9.70874C5.25162 9.1681 4.58214 8.77413 3.847 8.564L1 7.75L3.846 6.937C4.58114 6.72687 5.25062 6.3329 5.79126 5.79226C6.3319 5.25162 6.72587 4.58214 6.936 3.847L6.937 3.846Z" fill="black" stroke="black" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        <svg class="particle" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.937 3.846L7.75 1L8.563 3.846C8.77313 4.58114 9.1671 5.25062 9.70774 5.79126C10.2484 6.3319 10.9179 6.72587 11.653 6.936L14.5 7.75L11.654 8.563C10.9189 8.77313 10.2494 9.1671 9.70874 9.70774C9.1681 10.2484 8.77413 10.9179 8.564 11.653L7.75 14.5L6.937 11.654C6.72687 10.9189 6.3329 10.2494 5.79226 9.70874C5.25162 9.1681 4.58214 8.77413 3.847 8.564L1 7.75L3.846 6.937C4.58114 6.72687 5.25062 6.3329 5.79126 5.79226C6.3319 5.25162 6.72587 4.58214 6.936 3.847L6.937 3.846Z" fill="black" stroke="black" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        <svg class="particle" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.937 3.846L7.75 1L8.563 3.846C8.77313 4.58114 9.1671 5.25062 9.70774 5.79126C10.2484 6.3319 10.9179 6.72587 11.653 6.936L14.5 7.75L11.654 8.563C10.9189 8.77313 10.2494 9.1671 9.70874 9.70774C9.1681 10.2484 8.77413 10.9179 8.564 11.653L7.75 14.5L6.937 11.654C6.72687 10.9189 6.3329 10.2494 5.79226 9.70874C5.25162 9.1681 4.58214 8.77413 3.847 8.564L1 7.75L3.846 6.937C4.58114 6.72687 5.25062 6.3329 5.79126 5.79226C6.3319 5.25162 6.72587 4.58214 6.936 3.847L6.937 3.846Z" fill="black" stroke="black" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        <svg class="particle" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.937 3.846L7.75 1L8.563 3.846C8.77313 4.58114 9.1671 5.25062 9.70774 5.79126C10.2484 6.3319 10.9179 6.72587 11.653 6.936L14.5 7.75L11.654 8.563C10.9189 8.77313 10.2494 9.1671 9.70874 9.70774C9.1681 10.2484 8.77413 10.9179 8.564 11.653L7.75 14.5L6.937 11.654C6.72687 10.9189 6.3329 10.2494 5.79226 9.70874C5.25162 9.1681 4.58214 8.77413 3.847 8.564L1 7.75L3.846 6.937C4.58114 6.72687 5.25062 6.3329 5.79126 5.79226C6.3319 5.25162 6.72587 4.58214 6.936 3.847L6.937 3.846Z" fill="black" stroke="black" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        <svg class="particle" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.937 3.846L7.75 1L8.563 3.846C8.77313 4.58114 9.1671 5.25062 9.70774 5.79126C10.2484 6.3319 10.9179 6.72587 11.653 6.936L14.5 7.75L11.654 8.563C10.9189 8.77313 10.2494 9.1671 9.70874 9.70774C9.1681 10.2484 8.77413 10.9179 8.564 11.653L7.75 14.5L6.937 11.654C6.72687 10.9189 6.3329 10.2494 5.79226 9.70874C5.25162 9.1681 4.58214 8.77413 3.847 8.564L1 7.75L3.846 6.937C4.58114 6.72687 5.25062 6.3329 5.79126 5.79226C6.3319 5.25162 6.72587 4.58214 6.936 3.847L6.937 3.846Z" fill="black" stroke="black" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        <svg class="particle" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.937 3.846L7.75 1L8.563 3.846C8.77313 4.58114 9.1671 5.25062 9.70774 5.79126C10.2484 6.3319 10.9179 6.72587 11.653 6.936L14.5 7.75L11.654 8.563C10.9189 8.77313 10.2494 9.1671 9.70874 9.70774C9.1681 10.2484 8.77413 10.9179 8.564 11.653L7.75 14.5L6.937 11.654C6.72687 10.9189 6.3329 10.2494 5.79226 9.70874C5.25162 9.1681 4.58214 8.77413 3.847 8.564L1 7.75L3.846 6.937C4.58114 6.72687 5.25062 6.3329 5.79126 5.79226C6.3319 5.25162 6.72587 4.58214 6.936 3.847L6.937 3.846Z" fill="black" stroke="black" stroke-linecap="round" stroke-linejoin="round" /></svg>
+      </span>
+      </div>
+        <button class="btn btn-ghost btn-lg" onclick="window.location.href='tel:1877-8307'">전화 문의: 1877-8307</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo" style="margin-bottom:16px;">
+            <img src="logo.png?v=2" alt="Homebuddy Icon" style="height: 32px; width: auto; margin-right: 4px;">
+            <span style="font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: -0.05em; font-size: 20px;">Homebuddy</span>
+          </div>
+          <p style="max-width:320px; font-size:14px; line-height:1.6;">
+            단순 청소를 넘어선 365일 정밀 위생 케어 전문 시스템. 홈버디가 1년 내내 깨끗하고 완벽한 주거 환경을 책임집니다.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h5>서비스 메뉴</h5>
+          <ul>
+            <li><a href="#cleaning-system">8단계 케어</a></li>
+            <li><a href="#special-service">멤버십 혜택</a></li>
+            <li><a href="#comparison">서비스 요금</a></li>
+            <li><a href="#reviews">고객 리뷰</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>고객지원</h5>
+          <ul>
+            <li><a href="terms.html" target="_blank">이용약관</a></li>
+            <li><a href="privacy.html" target="_blank">개인정보처리방침</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <p style="margin-bottom:8px;">고객센터: 1877-8307</p>
+          <p style="margin-bottom:8px;">운영시간: 평일 09:00 ~ 18:00</p>
+          <p>이메일: <a href="mailto:homebuddy119@gmail.com" style="color:var(--color-slate-gray); text-decoration:none;">homebuddy119@gmail.com</a></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 HOMEBUDDY Inc. All rights reserved.</div>
+        <div style="display:flex; gap:16px;">
+          <span>주식회사 홈버디</span> | <span>사업자등록번호: 514-64-00495</span> | <span>대표: 이시현</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal Popup -->
+  <div id="consultModal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 style="font-size:20px;">상담 신청 및 견적 문의</h3>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+      <form onsubmit="submitForm(event)">
+        <input type="text" class="form-input" placeholder="이름" required>
+        <input type="tel" class="form-input" placeholder="연락처 (예: 010-1234-5678)" required>
+        <input type="text" class="form-input" placeholder="지역 및 아파트/주택명 (예: 서울 송파구)" required>
+        <select class="form-input" style="color:var(--color-ink-charcoal);">
+          <option value="">관심 서비스 선택</option>
+          <option value="sub">사계절 정기 구독 케어 (무료 줄눈 시공 혜택)</option>
+          <option value="single">원데이 케어 (1회) 정밀 딥클리닝</option>
+        </select>
+        <textarea class="form-input" rows="3" placeholder="기타 문의 사항을 자유롭게 적어주세요."></textarea>
+        <button type="submit" class="btn btn-rainbow-border" style="width:100%; font-size:16px;">신청하기</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Tab switching logic for Pricing
+    function switchPriceTab(tabId) {
+      document.querySelectorAll('.pricing-tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.pricing-table-container').forEach(el => el.style.display = 'none');
+
+      if(tabId === 'single') {
+        document.querySelectorAll('.pricing-tab-btn')[0].classList.add('active');
+        document.getElementById('tab-single').style.display = 'block';
+      } else if(tabId === 'sub') {
+        document.querySelectorAll('.pricing-tab-btn')[1].classList.add('active');
+        document.getElementById('tab-sub').style.display = 'block';
+      }
+    }
+
+    // Price Calculator Logic
+    let calcState = { type: 'once', size: 0, bath: 1, freq: 'm1' };
+
+    const priceMatrix = {
+      1: {
+        m1: ['55,000원', '60,000원', '65,000원'],
+        m2: ['100,000원', '110,000원', '120,000원'],
+        m4: ['180,000원', '200,000원', '220,000원']
+      },
+      2: {
+        m1: ['99,000원', '109,000원', '119,000원'],
+        m2: ['179,000원', '199,000원', '219,000원'],
+        m4: ['319,000원', '339,000원', '359,000원']
+      }
+    };
+
+    const oncePrices = {
+      1: ['80,000원', '90,000원', '100,000원'],
+      2: ['150,000원', '170,000원', '190,000원']
+    };
+
+    const initFees = {
+      1: ['80,000원', '90,000원', '100,000원'],
+      2: ['150,000원', '170,000원', '190,000원']
+    };
+
+    function setCalcOption(prop, val, btnEl) {
+      calcState[prop] = val;
+      const parent = btnEl.parentElement;
+      parent.querySelectorAll('.calc-opt-btn').forEach(b => b.classList.remove('selected'));
+      btnEl.classList.add('selected');
+
+      if (prop === 'type') {
+        document.getElementById('freq-group').style.display = val === 'sub' ? 'block' : 'none';
+      }
+
+      updateCalcDisplay();
+
+      // 시각적 피드백 애니메이션 (가격 팝업 효과)
+      const priceDisplay = document.getElementById('calcPriceDisplay');
+      priceDisplay.style.transform = 'scale(1.05)';
+      priceDisplay.style.transition = 'transform 0.1s ease-out';
+      setTimeout(() => {
+        priceDisplay.style.transform = 'scale(1)';
+        priceDisplay.style.transition = 'transform 0.3s ease-in';
+      }, 150);
+    }
+
+    function updateCalcDisplay() {
+      const priceDisplay = document.getElementById('calcPriceDisplay');
+      const initFeeDisplay = document.getElementById('calcInitFee');
+      const titleDisplay = document.getElementById('calcTitleDisplay');
+
+      if (calcState.type === 'once') {
+        const priceStr = oncePrices[calcState.bath][calcState.size];
+        titleDisplay.innerText = '선택하신 조건의 원데이 케어 (1회) 이용료';
+        priceDisplay.innerHTML = priceStr;
+        priceDisplay.style.color = '#ffffff';
+        initFeeDisplay.innerText = '(원데이 케어 서비스 적용)';
+      } else {
+        const priceStr = priceMatrix[calcState.bath][calcState.freq][calcState.size];
+        const initFeeStr = initFees[calcState.bath][calcState.size];
+        
+        const baseStr = oncePrices[calcState.bath][calcState.size];
+        const baseNum = parseInt(baseStr.replace(/[^0-9]/g, ''));
+        const subNum = parseInt(priceStr.replace(/[^0-9]/g, ''));
+        
+        let multiplier = 1;
+        if (calcState.freq === 'm2') multiplier = 2;
+        if (calcState.freq === 'm4') multiplier = 4;
+        
+        const compareNum = baseNum * multiplier;
+        const discountPercent = Math.round(((compareNum - subNum) / compareNum) * 100);
+        
+        titleDisplay.innerText = '선택하신 조건의 정기 구독 월 이용료';
+        priceDisplay.innerHTML = `
+          <div style="font-size:16px; color:rgba(255,255,255,0.7); margin-bottom:8px; font-weight:normal; letter-spacing:0; line-height:1.2;">
+            <span style="text-decoration:line-through;">원데이 기준 ${compareNum.toLocaleString()}원</span>
+            <span style="color:#ffe066; font-weight:800; font-size:18px; margin-left:8px; text-decoration:none; display:inline-block;">-${discountPercent}%</span>
+          </div>
+          <div>월 ${priceStr}</div>
+          <div style="font-size:18px; color:#cce0ff; margin-top:8px; font-weight:600; text-shadow:none; letter-spacing:-0.03em;">
+            (1회당 ${(subNum / multiplier).toLocaleString()}원)
+          </div>
+        `;
+        priceDisplay.style.color = '#ffffff';
+        initFeeDisplay.innerText = `(초기 비용: ${initFeeStr} 별도 / 줄눈 시공 무료 혜택)`;
+      }
+    }
+
+    // Modal Control
+    function openModal() {
+      document.getElementById('consultModal').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('consultModal').classList.remove('active');
+    }
+
+    function submitForm(e) {
+      e.preventDefault();
+      alert('상담 신청이 정상적으로 접수되었습니다. 홈버디 위생 전담팀이 1시간 내로 안내 연락드리겠습니다.');
+      closeModal();
+    }
+
+    // Scroll reveal observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Sparkles Text Logic for Homebuddy Logo
+    document.addEventListener("DOMContentLoaded", () => {
+      const sparkleWrapper = document.getElementById("homebuddy-sparkles");
+      if (!sparkleWrapper) return;
+
+      // Use template colors: Cobalt, Violet, and Powder Blue
+      const colors = ["var(--color-electric-cobalt)", "var(--color-vivid-violet)", "var(--color-powder-blue)"]; 
+      
+      const createSparkle = () => {
+        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        const size = Math.random() * 15 + 10;
+        svg.setAttribute("viewBox", "0 0 160 160");
+        svg.setAttribute("width", size);
+        svg.setAttribute("height", size);
+        svg.classList.add("sparkle-svg");
+        
+        // Random positioning around the text
+        const top = (Math.random() * 120 - 10) + "%";
+        const left = (Math.random() * 120 - 10) + "%";
+        svg.style.top = top;
+        svg.style.left = left;
+        
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        
+        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        path.setAttribute("d", "M80 0C80 0 84.2846 41.2925 101.434 58.5663C118.707 75.7154 160 80 160 80C160 80 118.707 84.2846 101.434 101.434C84.2846 118.707 80 160 80 160C80 160 75.7154 118.707 58.5663 101.434C41.2925 84.2846 0 80 0 80C0 80 41.2925 75.7154 58.5663 58.5663C75.7154 41.2925 80 0 80 0Z");
+        path.setAttribute("fill", color);
+        
+        svg.appendChild(path);
+        sparkleWrapper.appendChild(svg);
+        
+        setTimeout(() => {
+          svg.remove();
+        }, 1500); 
+      };
+
+      // Add initial sparkles
+      for(let i = 0; i < 3; i++) {
+        setTimeout(createSparkle, i * 200);
+      }
+      
+      setInterval(createSparkle, 400); 
+    });
+  </script>
+
+  <!-- Particle JS for Shiny Button -->
+  <script>
+    const RANDOM = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
+    const PARTICLES = document.querySelectorAll('.particle')
+    PARTICLES.forEach(P => {
+      P.setAttribute('style', `
+        --x: ${RANDOM(20, 80)};
+        --y: ${RANDOM(20, 80)};
+        --duration: ${RANDOM(6, 20)};
+        --delay: ${RANDOM(1, 10)};
+        --alpha: ${RANDOM(40, 90) / 100};
+        --origin-x: ${Math.random() > 0.5 ? RANDOM(300, 800) * -1 : RANDOM(300, 800)}%;
+        --origin-y: ${Math.random() > 0.5 ? RANDOM(300, 800) * -1 : RANDOM(300, 800)}%;
+        --size: ${RANDOM(40, 90) / 100};
+      `)
+    })
+  </script>
+
+</body>
+</html>
