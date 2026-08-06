@@ -1097,7 +1097,8 @@
 
     @media (max-width: 768px) {
       .footer-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
+        gap: 32px;
       }
     }
 
@@ -1376,9 +1377,12 @@
       <div class="hero-text-block">
         <div class="badge badge-cobalt">✨ 단순 청소를 넘어선 프리미엄 위생 케어</div>
         <h1 class="display-headline" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
-          <div style="display: flex; align-items: center; gap: 8px;">
-            <img src="logo.png?v=2" alt="Homebuddy Icon" style="height: 1.8em; width: auto; transform: translateY(4px); margin-right: 4px;">
-            <span id="homebuddy-sparkles" class="sparkle-wrapper" style="font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: -0.05em; color: var(--color-ink-charcoal);">Homebuddy</span>만의 365일
+          <div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px 6px;">
+            <span style="display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;">
+              <img src="logo.png?v=2" alt="Homebuddy Icon" style="height: 1.8em; width: auto; transform: translateY(4px);">
+              <span id="homebuddy-sparkles" class="sparkle-wrapper" style="font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: -0.05em; color: var(--color-ink-charcoal);">Homebuddy</span>만의
+            </span>
+            <span style="white-space: nowrap;">365일</span>
           </div>
           <span style="color: var(--color-electric-cobalt);">정밀 위생 케어 시스템</span>
         </h1>
@@ -1957,9 +1961,12 @@
   <!-- Section 3: 합리적인 금액 (단가표 & 계산기) -->
   <section id="pricing" class="section reveal">
     <div class="container">
-      <h2 class="section-title" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
-        <img src="logo.png?v=2" alt="Homebuddy Icon" style="height: 1.2em; width: auto;">
-        <span style="font-weight: 800; letter-spacing: -0.05em; margin-right: 2px;">Homebuddy</span>만의 합리적인 가격
+      <h2 class="section-title" style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px 6px;">
+        <span style="display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;">
+          <img src="logo.png?v=2" alt="Homebuddy Icon" style="height: 1.2em; width: auto;">
+          <span style="font-weight: 800; letter-spacing: -0.05em;">Homebuddy</span>만의
+        </span>
+        <span style="white-space: nowrap;">합리적인 가격</span>
       </h2>
       <p class="section-subtitle">투명하고 합리적인 요금 체계로 부담 없이 최고의 위생 상태를 유지하세요.</p>
 
@@ -2460,7 +2467,7 @@
           <h5>Contact</h5>
           <p style="margin-bottom:8px;">고객센터: 1877-8307</p>
           <p style="margin-bottom:8px;">운영시간: 평일 09:00 ~ 18:00</p>
-          <p>이메일: <a href="mailto:homebuddy119@gmail.com" style="color:var(--color-slate-gray); text-decoration:none;">homebuddy119@gmail.com</a></p>
+          <p style="word-break: break-all;">이메일: <a href="mailto:homebuddy119@gmail.com" style="color:var(--color-slate-gray); text-decoration:none;">homebuddy119@gmail.com</a></p>
         </div>
       </div>
 
